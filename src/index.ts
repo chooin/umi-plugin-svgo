@@ -1,22 +1,25 @@
-import { IApi, utils } from 'umi';
+import { IApi } from 'umi';
 
 export default (api: IApi) => {
   api.chainWebpack((config) => {
-    const module = config.module
-      .rule('svg-loader')
-      .test(/\.svg$/)
-
-    module
-      .use('loader')
+    config.module
+      .rule('svg')
+      .use('file-loader')
       .loader('file-loader')
-      .options({})
+      .tap((options) => {
+        return {
+          ...options,
+          name: 'static/[hash:8].[ext]',
+        }
+      });
 
-    module
-      .use('loader')
+    config.module
+      .rule('svg')
+      .use('svgo-loader')
       .loader('svgo-loader')
       .options({
         configFile: false
-      })
+      });
 
     return config;
   })
