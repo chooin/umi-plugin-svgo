@@ -18,7 +18,7 @@ export default (api: IApi) => {
       .use('svgo-loader')
       .loader('svgo-loader')
       .options({
-        configFile: false
+        multipass: true,
       });
 
     return config;
