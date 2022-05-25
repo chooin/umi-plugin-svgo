@@ -1,10 +1,13 @@
 {
   "name": "umi-plugin-svgo",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "main": "dist/index.js",
   "repository": "git@github.com:chooin/umi-plugin-svgo.git",
   "author": "Devin.Zhu <chooin@126.com>",
   "license": "MIT",
+  "scripts": {
+    "build": "tsc"
+  },
   "dependencies": {
     "file-loader": "^6.2.0",
     "svgo-loader": "^3.0.0"
@@ -13,7 +16,7 @@
     "typescript": "^4.6.3",
     "umi": "^3.5.23"
   },
-  "scripts": {
-    "build": "tsc"
+  "peerDependencies": {
+    "umi": "3.x"
   }
 }
